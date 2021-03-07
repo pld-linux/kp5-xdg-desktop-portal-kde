@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		xdg-desktop-portal-kde
 
 Summary:	KDE XDG Desktop Portal
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	2492e7e238944e5f573857a8a8d66276
+# Source0-md5:	ec21c5c78c286d5d74e680db3e56f4ab
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -53,6 +53,7 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
 
@@ -70,3 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
+%{_desktopdir}/org.freedesktop.impl.portal.desktop.kde.desktop
+%{_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
+%dir %{_datadir}/xdg-desktop-portal-kde
+%dir %{_datadir}/xdg-desktop-portal-kde/qml
+%{_datadir}/xdg-desktop-portal-kde/qml/AppChooserDialog.qml
+%{_datadir}/xdg-desktop-portal-kde/qml/UserInfoDialog.qml
