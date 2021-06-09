@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.21.5
+%define		kdeplasmaver	5.22.0
 %define		qtver		5.9.0
 %define		kpname		xdg-desktop-portal-kde
 
 Summary:	KDE XDG Desktop Portal
 Name:		kp5-%{kpname}
-Version:	5.21.5
+Version:	5.22.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	448d1dd83c4ca018b5f7f80bab2df93f
+# Source0-md5:	737b92c201606d657ff68bf566911bb3
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
