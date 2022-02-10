@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.23.5
+%define		kdeplasmaver	5.24.0
 %define		qtver		5.9.0
 %define		kpname		xdg-desktop-portal-kde
 
 Summary:	KDE XDG Desktop Portal
 Name:		kp5-%{kpname}
-Version:	5.23.5
+Version:	5.24.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	1febb7d47c505f07634668bef9095bc3
+# Source0-md5:	9aafa58faea1bd7f90776f6e63d3866a
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -73,7 +73,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
 %{_desktopdir}/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
-%dir %{_datadir}/xdg-desktop-portal-kde
-%dir %{_datadir}/xdg-desktop-portal-kde/qml
-%{_datadir}/xdg-desktop-portal-kde/qml/AppChooserDialog.qml
-%{_datadir}/xdg-desktop-portal-kde/qml/UserInfoDialog.qml
+%{systemduserunitdir}/plasma-xdg-desktop-portal-kde.service
