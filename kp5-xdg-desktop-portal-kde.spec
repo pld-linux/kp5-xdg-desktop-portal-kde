@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.7
+%define		kdeplasmaver	5.27.8
 %define		qtver		5.15.2
 %define		kpname		xdg-desktop-portal-kde
 
 Summary:	KDE XDG Desktop Portal
 Name:		kp5-%{kpname}
-Version:	5.27.7
+Version:	5.27.8
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	26e40eaf358dc02d71ab5cb511a5b3a8
+# Source0-md5:	539e7938c8125261d3f1e79e2811a418
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
@@ -78,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/xdg-desktop-portal-kde
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.kde.service
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
+%{_datadir}/xdg-desktop-portal/kde-portals.conf
 %{_desktopdir}/org.freedesktop.impl.portal.desktop.kde.desktop
 %{_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
 %{systemduserunitdir}/plasma-xdg-desktop-portal-kde.service
