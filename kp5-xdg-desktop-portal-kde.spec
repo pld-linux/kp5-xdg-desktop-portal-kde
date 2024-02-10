@@ -1,40 +1,38 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.10
+%define		kdeplasmaver	5.93.0
 %define		qtver		5.15.2
 %define		kpname		xdg-desktop-portal-kde
 
 Summary:	KDE XDG Desktop Portal
 Name:		kp5-%{kpname}
-Version:	5.27.10
-Release:	1
+Version:	5.93.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	440dd7cb1f43d7d86862a1165b48c4f2
+Source0:	https://download.kde.org/unstable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	2fd327ea2692758456204c7438085463
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
 BuildRequires:	cups-devel
 BuildRequires:	fontconfig-devel
-BuildRequires:	kf5-attica-devel
-BuildRequires:	kf5-kactivities-stats-devel
-BuildRequires:	kf5-kauth-devel
-BuildRequires:	kf5-kcmutils-devel
-BuildRequires:	kf5-kdbusaddons-devel
-BuildRequires:	kf5-kdeclarative-devel
-BuildRequires:	kf5-kdelibs4support-devel
-BuildRequires:	kf5-kdoctools-devel
-BuildRequires:	kf5-kglobalaccel-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-knewstuff-devel
-BuildRequires:	kf5-knotifications-devel
-BuildRequires:	kf5-knotifyconfig-devel
-BuildRequires:	kf5-kpeople-devel
-BuildRequires:	kf5-krunner-devel
-BuildRequires:	kf5-kwallet-devel
-BuildRequires:	kf5-plasma-framework-devel
+BuildRequires:	kf6-attica-devel
+BuildRequires:	kf6-kauth-devel
+BuildRequires:	kf6-kcmutils-devel
+BuildRequires:	kf6-kdbusaddons-devel
+BuildRequires:	kf6-kdeclarative-devel
+BuildRequires:	kf6-kdoctools-devel
+BuildRequires:	kf6-kglobalaccel-devel
+BuildRequires:	kf6-ki18n-devel
+BuildRequires:	kf6-knewstuff-devel
+BuildRequires:	kf6-knotifications-devel
+BuildRequires:	kf6-knotifyconfig-devel
+BuildRequires:	kf6-kpeople-devel
+BuildRequires:	kf6-krunner-devel
+BuildRequires:	kf6-kwallet-devel
+BuildRequires:	kp5-plasma-activities-stats-devel
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xorg-driver-input-evdev-devel
@@ -43,7 +41,7 @@ BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt5dir		%{_libdir}/qt5
+%define		qt6dir		%{_libdir}/qt6
 
 %description
 A portal frontend service for Flatpak and possibly other desktop
@@ -80,6 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/xdg-desktop-portal/portals/kde.portal
 %{_datadir}/xdg-desktop-portal/kde-portals.conf
 %{_desktopdir}/org.freedesktop.impl.portal.desktop.kde.desktop
-%{_datadir}/knotifications5/xdg-desktop-portal-kde.notifyrc
+%{_datadir}/knotifications6/xdg-desktop-portal-kde.notifyrc
 %{systemduserunitdir}/plasma-xdg-desktop-portal-kde.service
-%{_datadir}/qlogging-categories5/xdp-kde.categories
+%{_datadir}/qlogging-categories6/xdp-kde.categories
